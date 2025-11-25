@@ -2,7 +2,7 @@
 echo Installing Shiny and dependencies...
 echo.
 
-"C:\Program Files\R\R-4.4.1\bin\Rscript.exe" install_shiny.R
+"C:\Program Files\R\R-4.4.1\bin\x64\Rscript.exe" install_shiny.R
 
 if %errorlevel% neq 0 (
     echo.
@@ -17,6 +17,6 @@ echo.
 echo Now launching Shiny app...
 echo.
 
-"C:\Program Files\R\R-4.4.1\bin\R.exe" --no-save -f launch_app.R
+"C:\Program Files\R\R-4.4.1\bin\x64\R.exe" --no-save -f launch_app.R
 
 pause
