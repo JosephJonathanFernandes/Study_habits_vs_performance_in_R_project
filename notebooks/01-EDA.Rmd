@@ -1,0 +1,47 @@
+---
+title: "01 - Exploratory Data Analysis"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(tidyverse)
+library(skimr)
+library(naniar)
+library(here)
+```
+
+## Load data
+
+```{r}
+df <- readr::read_csv(here('data','processed','features.csv'))
+skimr::skim(df)
+```
+
+## Missingness
+
+```{r}
+vis_miss(df)
+```
+
+## Distributions
+
+```{r}
+num_cols <- df %>% select(where(is.numeric))
+num_cols %>% pivot_longer(everything()) %>%
+  ggplot(aes(value)) +
+  facet_wrap(~name, scales = 'free') +
+  geom_histogram(bins = 30)
+```
+
+## Correlations with final grade
+
+```{r}
+cor_df <- df %>% select(where(is.numeric))
+cor_mat <- cor(cor_df, use = 'pairwise.complete.obs')
+cor_mat['final_grade', ] %>% sort(decreasing = TRUE) %>% head(10)
+```
+
+## Short findings
+
+- Note observations here: which features correlate with `final_grade`, missingness patterns, and potential data issues.

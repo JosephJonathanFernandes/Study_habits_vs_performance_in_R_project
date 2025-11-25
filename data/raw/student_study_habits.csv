@@ -1,0 +1,1 @@
+COPY of the original CSV is placed here. If you see this message, the file wasn't copied by the automation. Please move `student_study_habits.csv` from the repository root into `data/raw/` manually or run the provided script `scripts/01_load_clean.R` which will read it from the repo root if needed.
