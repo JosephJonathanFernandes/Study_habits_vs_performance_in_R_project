@@ -3,7 +3,7 @@ cat("Testing R environment...\n")
 cat("Working directory:", getwd(), "\n\n")
 
 # Test package loading one by one
-packages <- c('readr', 'dplyr', 'janitor', 'here')
+packages <- c('readr', 'dplyr')
 for (pkg in packages) {
   cat("Loading", pkg, "... ")
   result <- tryCatch({

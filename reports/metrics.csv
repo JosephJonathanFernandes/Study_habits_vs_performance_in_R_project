@@ -1,0 +1,7 @@
+.metric,.estimator,.estimate,model
+rmse,standard,4.316889589657367,linear_regression
+rsq,standard,0.5955064657809926,linear_regression
+mae,standard,3.506079890025546,linear_regression
+rmse,standard,4.394147398812697,random_forest
+rsq,standard,0.5948322952115764,random_forest
+mae,standard,3.640258070550968,random_forest

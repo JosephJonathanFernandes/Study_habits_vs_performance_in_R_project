@@ -1,9 +1,8 @@
 # Simple feature engineering
 library(dplyr)
-library(here)
 
-infile <- here('data','processed','cleaned.csv')
-outfile <- here('data','processed','features.csv')
+infile <- 'data/processed/cleaned.csv'
+outfile <- 'data/processed/features.csv'
 
 if (!file.exists(infile)) stop('Run 01_load_clean.R first')
 

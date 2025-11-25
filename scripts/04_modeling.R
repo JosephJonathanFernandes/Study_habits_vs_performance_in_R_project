@@ -1,9 +1,8 @@
 # Baseline modeling with tidymodels: linear regression + random forest
 library(tidymodels)
-library(here)
 
-train_file <- here('data','processed','train.csv')
-test_file  <- here('data','processed','test.csv')
+train_file <- 'data/processed/train.csv'
+test_file  <- 'data/processed/test.csv'
 
 if (!file.exists(train_file) || !file.exists(test_file)) stop('Run 03_train_test_split.R first')
 
@@ -40,10 +39,10 @@ rf_metrics <- metrics(rf_preds, truth = final_grade, estimate = .pred) %>% mutat
 
 all_metrics <- bind_rows(lm_metrics, rf_metrics)
 
-readr::write_csv(all_metrics, here('reports','metrics.csv'))
+readr::write_csv(all_metrics, 'reports/metrics.csv')
 message('Saved metrics to reports/metrics.csv')
 
 # Save models
-saveRDS(lm_fit, here('models','lm_fit.rds'))
-saveRDS(rf_fit, here('models','rf_fit.rds'))
+saveRDS(lm_fit, 'models/lm_fit.rds')
+saveRDS(rf_fit, 'models/rf_fit.rds')
 message('Saved model artifacts to models/')
