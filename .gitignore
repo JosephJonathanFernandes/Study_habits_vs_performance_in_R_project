@@ -1,0 +1,18 @@
+.Rhistory
+.RData
+.Rproj.user
+/*.Rproj
+.Ruserdata
+/.Rproj.user/
+/.Rhistory
+.Rhistory
+.Renviron
+/.Ruserdata
+.DS_Store
+__pycache__/
+*.log
+/.vscode/
+.Rbuildignore
+
+# user-specific
+C:/Users/*/AppData/Local/R/**
