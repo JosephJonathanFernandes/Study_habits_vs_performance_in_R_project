@@ -2,12 +2,12 @@
 ## A small EDA app for a student study habits dataset
 ## Author: Generated improvements
 
-library(shiny)
-library(ggplot2)
-library(dplyr)
-library(DT)
-library(corrplot)
-library(rlang) # for .data pronoun in ggplot tidy evaluation
+suppressPackageStartupMessages(library(shiny))
+suppressPackageStartupMessages(library(ggplot2))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(DT))
+suppressPackageStartupMessages(library(corrplot))
+suppressPackageStartupMessages(library(rlang)) # for .data pronoun in ggplot tidy evaluation
 
 # Check if file exists, if not try to find it or use a placeholder
 file_path <- "student_study_habits.csv"
@@ -127,7 +127,7 @@ server <- function(input, output) {
         labs(title = paste("Boxplot of", input$bi_var_y, "by", input$bi_var_x))
     } else if (!is_x_binary && is_y_binary) {
       # Scatter with linear fit when Y is binary
-      p <- p + geom_point(alpha = 0.6) + geom_smooth(method = "lm", se = FALSE) +
+      p <- p + geom_point(alpha = 0.6) + geom_smooth(method = "lm", se = FALSE, formula = y ~ x) +
         labs(title = paste("Scatter Plot of", input$bi_var_y, "vs", input$bi_var_x))
     } else if (is_x_binary && is_y_binary) {
       # Jitter or count for binary-binary
@@ -136,7 +136,7 @@ server <- function(input, output) {
     } else {
       # Scatter for continuous-continuous
       p <- p + geom_point(alpha = 0.6, color = "darkblue") + 
-        geom_smooth(method = "lm", color = "red") +
+        geom_smooth(method = "lm", color = "red", formula = y ~ x) +
         labs(title = paste("Scatter Plot of", input$bi_var_y, "vs", input$bi_var_x))
     }
 
